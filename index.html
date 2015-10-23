@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge,chrome=1">
+    <title>Backbonejs</title>
+    <link rel="stylesheet" href="assets/base.css">
+</head>
+<body>
+    <section id="todoapp">
+        <header id="header">
+            <h1>todos</h1>
+            <input type="text" id="new-todo" placeholder="what needs to be done?" autofocus>
+        </header>
+        <section id="main">
+            <input type="checkbox" id="toggle-all">
+            <label for="toggle-all">Mark all as complete</label>
+            <ul id="todo-list"></ul>
+        </section>
+        <footer id="footer"></footer>
+    </section>
+    <div id="info">
+        <p>Double-click to edit a todo</p>
+    </div>
+    <script type="text/x-handlebars-template" id="item-template">
+        <div class="view">
+            <input type="checkbox" class="toggle" {{#if completed }}checked="checked"{{/if}}>
+            <label>{{{title}}}</label>
+            <button class="destroy"></button>
+        </div>
+        <input type="text" class="edit" value="{{{title}}}">
+    </script>
+    <script type="text/x-handlebars-template" id="stats-template">
+        <span id="todo-count">
+            <strong>{{ remaining }}</strong>
+            {{#xif "this.remaining===1" }}
+                {{item}}
+            {{else}}
+                {{items}}
+            {{/xif}}
+        </span>
+        <ul id="filters">
+            <li>
+                <a href="#/" class="selected">All</a>
+            </li>
+            <li>
+                <a href="#/active">Active</a>
+            </li>
+            <li>
+                <a href="#/completed">Completed</a>
+            </li>
+        </ul>
+        {{#if completed}}
+            <button id="clear-completed">
+                Clear completed ({{completed}})
+            </button>
+        {{/if}}
+    </script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/handlebars/handlebars.js"></script>
+    <script>
+        Handlebars.registerHelper("x", function (expression, options) {
+            var fn = function(){}, result;
+
+            // in a try block in case the expression have invalid javascript
+            try {
+                // create a new function using Function.apply, notice the capital F in Function
+                fn = Function.apply(
+                        this,
+                        [
+                            'window', // or add more '_this, window, a, b' you can add more params if you have references for them when you call fn(window, a, b, c);
+                            'return ' + expression + ';' // edit that if you know what you're doing
+                        ]
+                );
+            } catch (e) {
+                console.warn('[warning] {{x ' + expression + '}} is invalid javascript', e);
+            }
+
+            // then let's execute this new function, and pass it window, like we promised
+            // so you can actually use window in your expression
+            // i.e expression ==> 'window.config.userLimit + 10 - 5 + 2 - user.count' //
+            // or whatever
+            try {
+                // if you have created the function with more params
+                // that would like fn(window, a, b, c)
+                result = fn.call(this, window);
+            } catch (e) {
+                console.warn('[warning] {{x ' + expression + '}} runtime error', e);
+            }
+            // return the output of that result, or undefined if some error occured
+            return result;
+        });
+        Handlebars.registerHelper("xif", function (expression, options) {
+            return Handlebars.helpers["x"].apply(this, [expression, options]) ? options.fn(this) : options.inverse(this);
+        });
+    </script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/backbone/backbone.js"></script>
+    <script src="bower_components/backbone.localStorage/backbone.localStorage.js"></script>
+    <script src="js/models/todo.js"></script>
+    <script src="js/collections/todos.js"></script>
+    <script src="js/views/todos.js"></script>
+    <script src="js/views/app.js"></script>
+    <script src="js/routers/router.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

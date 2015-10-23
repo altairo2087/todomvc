@@ -1,0 +1,25 @@
+<component name="libraryTable">
+  <library name="Generated files" type="javaScript">
+    <properties>
+      <sourceFilesUrls>
+        <item url="file://$PROJECT_DIR$/js/models/todo.js" />
+        <item url="file://$PROJECT_DIR$/js/views/todos.js" />
+        <item url="file://$PROJECT_DIR$/js/views/app.js" />
+        <item url="file://$PROJECT_DIR$/js/routers/router.js" />
+        <item url="file://$PROJECT_DIR$/js/collections/todos.js" />
+        <item url="file://$PROJECT_DIR$/js/app.js" />
+      </sourceFilesUrls>
+    </properties>
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/js/views/test.js" />
+      <root url="file://$PROJECT_DIR$/js/views/test.js" />
+      <root url="file://$PROJECT_DIR$/js/models/todo.js" />
+      <root url="file://$PROJECT_DIR$/js/views/todos.js" />
+      <root url="file://$PROJECT_DIR$/js/views/app.js" />
+      <root url="file://$PROJECT_DIR$/js/routers/router.js" />
+      <root url="file://$PROJECT_DIR$/js/collections/todos.js" />
+      <root url="file://$PROJECT_DIR$/js/app.js" />
+    </CLASSES>
+    <SOURCES />
+  </library>
+</component>
