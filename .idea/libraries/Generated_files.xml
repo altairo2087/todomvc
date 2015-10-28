@@ -7,7 +7,9 @@
         <item url="file://$PROJECT_DIR$/js/views/app.js" />
         <item url="file://$PROJECT_DIR$/js/routers/router.js" />
         <item url="file://$PROJECT_DIR$/js/collections/todos.js" />
+        <item url="file://$PROJECT_DIR$/js/handlebars_plugins/x.js" />
         <item url="file://$PROJECT_DIR$/js/app.js" />
+        <item url="file://$PROJECT_DIR$/js/handlebars_plugins/xif.js" />
       </sourceFilesUrls>
     </properties>
     <CLASSES>
@@ -18,7 +20,9 @@
       <root url="file://$PROJECT_DIR$/js/views/app.js" />
       <root url="file://$PROJECT_DIR$/js/routers/router.js" />
       <root url="file://$PROJECT_DIR$/js/collections/todos.js" />
+      <root url="file://$PROJECT_DIR$/js/handlebars_plugins/x.js" />
       <root url="file://$PROJECT_DIR$/js/app.js" />
+      <root url="file://$PROJECT_DIR$/js/handlebars_plugins/xif.js" />
     </CLASSES>
     <SOURCES />
   </library>
